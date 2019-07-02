@@ -1,0 +1,25 @@
+type Query {
+    greeting: String,
+    searchPosts(searchTerm: String): [Post],
+    homeTweets: [Post]
+}
+
+type Post {
+    id: String,
+    created_at: String,
+    user: User,
+    text: String,
+    id_str: String,
+    favorited: Boolean
+}
+
+type User {
+    profile_image_url: String,
+    screen_name: String
+}
+
+type Mutation {
+    createPost(text: String): Boolean,
+    likeTweet(id: String): Boolean,
+    dislikeTweet(id: String): Boolean,
+}
