@@ -34,7 +34,6 @@ tweetRoute.route('/getTweetsByKey').get((req, res) => {
 });
 
 tweetRoute.route('/postTweets').post((req, res) => {
-    debug.log('req body: %o', req.body);
     T.post('statuses/update', { status: req.body.body }, function (error, tweet, response) {
         if (error) {
             res.send({ error: true, message: error });
